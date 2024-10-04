@@ -1,7 +1,4 @@
 import { Vehiculo } from "./Vehiculo";
-import { Auto } from "./vehiculos/Auto";
-import { Camion } from "./vehiculos/Camion";
-import { Moto } from "./vehiculos/Moto";
 
 export class RegistroAutomotor{
     private nombreRegistro: string;
@@ -39,52 +36,6 @@ export class RegistroAutomotor{
         let nuevaLista: Vehiculo[] = this.listaVehiculos.filter(vehiculo => vehiculo.getPatente() === patente && vehiculo.getTipoVehiculo() === tipoV);
         return nuevaLista;
     }
-    
-    private eliminarVehiculo(vehiculos: (Auto | Moto | Camion)[], index: number): void {
-        vehiculos.splice(index, 1);
-        console.log('Vehículo dado de baja correctamente.');
-    }
-
-    private crearVehiculo(v: Vehiculo): Vehiculo {
-        switch (v.getTipoVehiculo()) { 
-            case 'auto': {
-                let auto = v as Auto;  // Casting a Auto
-                return new Auto(
-                    auto.getCantPuertas(),
-                    auto.getCapacidadBaul(),
-                    auto.getTraccion(),
-                    auto.getMarca(),
-                    auto.getPatente()
-                );
-            }
-    
-            case 'moto': {
-                let moto = v as Moto;  // Casting a Moto
-                return new Moto(
-                    moto.getCilindraje(),
-                    moto.getCapacidadNafta(),
-                    moto.getTipo(),
-                    moto.getMarca(),
-                    moto.getPatente()
-                );
-            }
-    
-            case 'camion': {
-                let camion = v as Camion;  // Casting a Camion
-                return new Camion(
-                    camion.getTipoCaja(),
-                    camion.getCapacidadCarga(),
-                    camion.getTipoLicencia(),
-                    camion.getMarca(),
-                    camion.getPatente()
-                );
-            }
-    
-            default: {
-                throw new Error("Tipo de vehículo no válido");
-            }
-        }
-    }
 
     public agregarVehiculo(vehiculo: Vehiculo): void { 
         let patente: string = vehiculo.getPatente();
@@ -96,8 +47,8 @@ export class RegistroAutomotor{
         if (existe.length > 0) {
             console.log(`El vehículo con patente ${patente} ya está registrado.`);
         } else {
-            let vNue: Vehiculo = this.crearVehiculo(vehiculo);
-            this.listaVehiculos.push(vNue); 
+            
+            this.listaVehiculos.push(vehiculo); 
             console.log(`${tipoV} agregado/a correctamente.`);
         }
     }
@@ -113,8 +64,7 @@ export class RegistroAutomotor{
         if (index == -1) {
             console.log(`El vehículo con patente ${patente} no se encuentra registrado.`);
         } else { 
-            let vNue: Vehiculo = this.crearVehiculo(vehiculo); 
-            this.listaVehiculos[index] = vNue; //reemplazo el vehiculo a modificar en la posicion encontrada
+            this.listaVehiculos[index] = vehiculo; //reemplazo el vehiculo a modificar en la posicion encontrada
             console.log(`${tipoV} modificado/a correctamente.`);
         }
     }
