@@ -57,6 +57,41 @@ export class RegistroAutomotor{
         console.log('Vehículo dado de baja correctamente.');
     }
 
+    private crearVehiculo(v: Auto | Moto | Camion){
+        switch(v.getTipoVehiculo()) { 
+            case 'auto': { 
+                let vNue: Auto;
+                let auto = v as Auto;  // Casting a Auto
+                return vNue = new Auto(auto.getCantPuertas(),
+                                auto.getCapacidadBaul(),
+                                auto.getTraccion(),
+                                auto.getMarca(),
+                                auto.getPatente());
+            }
+
+            case 'moto': { 
+                let vNue: Moto;
+                let moto = v as Moto;  // Casting a Auto
+                return vNue = new Moto(moto.getCilindraje(),
+                                moto.getCapacidadNafta(),
+                                moto.getTipo(),
+                                moto.getMarca(),
+                                moto.getPatente());
+            }
+
+            case 'camion': { 
+                let vNue: Camion;
+                let camion = v as Camion;  // Casting a Auto
+                return vNue = new Camion(camion.getTipoCaja(),
+                                camion.getCapacidadCarga(),
+                                camion.getTipoLicencia(),
+                                camion.getMarca(),
+                                camion.getPatente());
+            }     
+        }
+
+    }
+
     public agregarVehiculo(vehiculo: Auto | Moto | Camion): void {
         let tipoVehiculo: string = this.obtenerTipoVehiculo(vehiculo);
         let vehiculos = this.vehiculosMap[tipoVehiculo];

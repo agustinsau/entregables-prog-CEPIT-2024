@@ -1,11 +1,12 @@
 import { RegistroAutomotor } from "./RegistroAutomotor";
-import { Auto } from "./vehiculo/Auto";
-import { Camion } from "./vehiculo/Camion";
-import { Moto } from "./vehiculo/Moto";
+import { Auto } from "./vehiculos/Auto";
+import { Camion } from "./vehiculos/Camion";
+import { Moto } from "./vehiculos/Moto";
 
 let registroAutomotor : RegistroAutomotor = new RegistroAutomotor('Registro de Autos Demian');
 
-let auto1 : Auto = new Auto(4, 15, 'Trasera', 'Toyota', '123456');
+//metodo interno en registro automotor para crear el objeto? crear vehiculo solo con parametros?
+let auto1 : Auto = new Auto(4, 165, 'Traseraasda', 'Toyakota', '123456');
 let moto1 : Moto = new Moto(2, 10, 'Chopera', 'Honda', '123456');
 let camion1 : Camion = new Camion('automatica', 200, 'especial', 'Ford', '123456');
 
@@ -17,15 +18,16 @@ registroAutomotor.agregarVehiculo(camion1);
 //Listado de todos los vehiculos disponibles
 registroAutomotor.listarTodosLosVehiculos();
 
-registroAutomotor.bajaVehiculo(moto1);
+let auto2 : Auto = new Auto(4, 10, 'Trasera', 'Toyota', '123456');
+registroAutomotor.modificarVehiculo(auto2);
+
+//Listado vehiculos luego modificar un vehiculo
+registroAutomotor.listarTodosLosVehiculos();
+
+//Dar de baja un vehiculo
+registroAutomotor.bajaVehiculo(auto2);
 
 //Listado vehiculos luego de dar de baja
 registroAutomotor.listarTodosLosVehiculos();
 
-auto1.setMarca('Chevrolet');
-
-registroAutomotor.modificarVehiculo(auto1);
-
-//Listado vehiculos luego de modificar
-registroAutomotor.listarTodosLosVehiculos();
 
