@@ -22,6 +22,8 @@ for (let i = 0; i < 5; i++) {
     guerrero.atacar();
 }
 
+guerrero.mostrarHabilidadesDesbloqueadas();
+
 //El mago ataca
 mago.atacar();
 
@@ -32,9 +34,11 @@ cajaMagica.abrir(mago);
 mago.atacar();
 
 //El mago ataca hasta evolucionar
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
     mago.atacar();
 }
+
+mago.mostrarHabilidadesDesbloqueadas();
 
 //El mrSatan ataca
 mrSatan.atacar();

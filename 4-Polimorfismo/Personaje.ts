@@ -8,6 +8,7 @@ export abstract class Personaje {
     protected nombre: String;
     protected puntosVida: number = 0;
     protected fuerza: number = 0;
+    protected fuerzaOriginal: number = 0;
 
     //Nivel y Experiencia
     protected nivel: number = 1;
@@ -106,6 +107,11 @@ export abstract class Personaje {
         this.dañoElemental = null;
     }
 
+    public mostrarHabilidadesDesbloqueadas(): void {
+        console.log(`${this.nombre} ha desbloqueado las siguientes habilidades:`);
+        this.habilidadesDesbloqueadas.forEach(habilidad => console.log(habilidad));
+    }
+
     //GETERS AND SETTERS
 
     public getNombre(): String {
@@ -146,6 +152,14 @@ export abstract class Personaje {
 
     public setFuerza(fuerza: number): void {
         this.fuerza = fuerza;
+    }
+
+    public getFuerzaOriginal(): number {
+        return this.fuerzaOriginal;
+    }
+
+    public setFuerzaOriginal(fuerzaOriginal: number): void {
+        this.fuerzaOriginal = fuerzaOriginal;
     }
 
     

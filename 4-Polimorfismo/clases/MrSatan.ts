@@ -1,9 +1,7 @@
 import { Personaje } from "../Personaje";
 
 export class MrSatan extends Personaje {
-    private fuerzaOriginal: number = 0;
-  
-    constructor(nombre: string) {
+    public constructor(nombre: string) {
         super(nombre);
         this.puntosVida = 50;
         this.fuerza = 10;

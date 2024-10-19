@@ -1,9 +1,7 @@
 import { Personaje } from "../Personaje";
 
 export class Mago extends Personaje {
-    private fuerzaOriginal: number = 0;
-  
-    constructor(nombre: string) {
+    public constructor(nombre: string) {
         super(nombre);
         this.puntosVida = 80;
         this.fuerza = 30;
@@ -30,7 +28,7 @@ export class Mago extends Personaje {
             console.log(`${this.nombre} lanza un hechizo con una fuerza de ${this.fuerza}.`);
         }
 
-        this.ganarXP(25);
+        this.ganarXP(60);
     }
   
     defender(): void {

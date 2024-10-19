@@ -1,8 +1,6 @@
 import { Personaje } from "../Personaje";
 
 export class Guerrero extends Personaje {
-    private fuerzaOriginal: number = 0;
-
     public constructor(nombre: String){
         super(nombre);
         this.puntosVida = 200;
@@ -29,7 +27,7 @@ export class Guerrero extends Personaje {
             console.log(`${this.nombre} está atacando con una fuerza de ${this.fuerza}.`);
         }
 
-        this.ganarXP(40);
+        this.ganarXP(50);
     }
     
     defender(): void {
@@ -51,16 +49,7 @@ export class Guerrero extends Personaje {
         console.log(`${this.nombre} ha vuelto a su fuerza normal de ${this.fuerza}.`);
     }
 
-
-    //GETERS AND SETTERS
-
-    public getFuerzaOriginal(): number {
-        return this.fuerzaOriginal;
-    }
-
-    public setFuerzaOriginal(fuerzaOriginal: number): void {
-        this.fuerzaOriginal = fuerzaOriginal;
-    }
+    
 
 
 }
