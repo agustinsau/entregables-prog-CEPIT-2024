@@ -1,9 +1,11 @@
 import { CajaMagica } from "./CajaMagica";
 import { Guerrero } from "./clases/Guerrero";
 import { Mago } from "./clases/Mago";
+import { MrSatan } from "./clases/MrSatan";
 
-let guerrero = new Guerrero('Dave el Barvaro');
+let guerrero = new Guerrero('Dave el Barbaro');
 let mago = new Mago("Merlín");
+let mrSatan = new MrSatan("Satan");
 let cajaMagica = new CajaMagica();
 
 //El Guerrero ataca
@@ -32,4 +34,18 @@ mago.atacar();
 //El mago ataca hasta evolucionar
 for (let i = 0; i < 5; i++) {
     mago.atacar();
+}
+
+//El mrSatan ataca
+mrSatan.atacar();
+
+//El mrSatan encuentra una caja mágica
+cajaMagica.abrir(mrSatan);
+
+//El mrSatan ataca con danio elemental
+mrSatan.atacar();
+
+//El mrSatan ataca hasta evolucionar
+for (let i = 0; i < 5; i++) {
+    mrSatan.atacar();
 }

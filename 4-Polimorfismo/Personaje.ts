@@ -40,24 +40,19 @@ export abstract class Personaje {
 
     protected ganarXP(xpObtenida: number): void {
         if (this.nivel >= this.nivelMaximo) {
-            console.log(`${this.nombre} ha alcanzado el nivel máximo!`);
+            console.log(`${this.nombre} ha alcanzado el nivel máximo! (${this.nivel}/${this.nivelMaximo})`);
             return;
         }
 
         this.xpActual += xpObtenida;
         console.log(`${this.nombre} ha ganado ${xpObtenida} puntos de experiencia. XP total: ${this.xpActual}/${this.xpSigNivel}`);
 
-        if (this.xpActual >= this.xpSigNivel) {
+        if (this.xpActual >= this.xpSigNivel && this.nivel < this.nivelMaximo) {
             this.subirDeNivel();
         }
     }
 
     protected subirDeNivel(): void {
-        if (this.nivel >= this.nivelMaximo) {
-            console.log(`${this.nombre} ha alcanzado el nivel máximo y no puede subir más de nivel.`);
-            return;
-        }
-
         this.nivel++;
         this.xpActual -= this.xpSigNivel;
         this.xpSigNivel += this.FACTOR_XP;
@@ -74,8 +69,7 @@ export abstract class Personaje {
     abstract revertirFuerza(): void;
 
     protected aprenderHabilidad(): void {
-        //if (this.habilidadesDesbloqueadas.length < this.habilidades.length) { //Si aun tiene habilidades por aprender
-        if (this.nivel < this.nivelMaximo){
+        if (this.habilidadesDesbloqueadas.length < this.habilidades.length) { //Si aun tiene habilidades por aprender
             let nuevaHabilidad = this.habilidades[this.habilidadesDesbloqueadas.length];
             
             this.habilidadesDesbloqueadas.push(nuevaHabilidad);
@@ -100,6 +94,7 @@ export abstract class Personaje {
     
           if (this.ataquesElementalesRestantes === 0) {
             console.log(`${this.nombre} ha agotado su poder elemental y vuelve a tener ataque normal.`);
+            this.desactivarElemental();
             this.revertirFuerza();
           }
         } else {
@@ -107,6 +102,9 @@ export abstract class Personaje {
         }   
     }
 
+    private desactivarElemental(): void {
+        this.dañoElemental = null;
+    }
 
     //GETERS AND SETTERS
 

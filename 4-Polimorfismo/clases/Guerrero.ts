@@ -10,10 +10,10 @@ export class Guerrero extends Personaje {
         this.setFuerzaOriginal(this.fuerza);
         
         //Nivel máximo de clase y XP necesaria para subir de nivel del Guerrero
-        this.nivelMaximo = 10; 
+        this.nivelMaximo = 12; 
         this.xpSigNivel = 120; 
 
-        // Definir las habilidades del Guerrero, se desbloquean con la evolución
+        //Definir las habilidades del Guerrero, se desbloquean con la evolución
         this.habilidades = [
             "Golpe aplastante",
             "Corte doble",
@@ -37,7 +37,7 @@ export class Guerrero extends Personaje {
     }
 
     evolucionar(): void {
-        console.log(`${this.nombre} ha evolucionado a una versión más fuerte.`);
+        console.log(`${this.nombre} ha evolucionado a una versión más fuerte. Nivel Actual: ${this.nivel}/${this.nivelMaximo}`);
         this.fuerza += 20;
         this.puntosVida += 30;
         this.fuerzaOriginal = this.fuerza;
@@ -47,7 +47,7 @@ export class Guerrero extends Personaje {
     }
     
     revertirFuerza(): void {
-        this.fuerza = this.fuerzaOriginal;
+        this.fuerza = this.getFuerzaOriginal();
         console.log(`${this.nombre} ha vuelto a su fuerza normal de ${this.fuerza}.`);
     }
 

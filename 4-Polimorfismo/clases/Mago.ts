@@ -9,16 +9,17 @@ export class Mago extends Personaje {
         this.fuerza = 30;
         this.setFuerzaOriginal(this.fuerza);
 
-        // Establecemos el nivel máximo y la xp inicial del Mago
-        this.nivelMaximo = 15; // Nivel máximo del Mago
-        this.xpSigNivel = 80; // XP inicial para subir de nivel del Mago
+        //Establecemos el nivel máximo y la xp inicial del Mago
+        this.nivelMaximo = 15; 
+        this.xpSigNivel = 80; 
 
-        // Definir las habilidades del Mago
+        //Definir las habilidades del Mago
         this.habilidades = [
-        "Bola de fuego",
-        "Rayo de hielo",
-        "Escudo mágico",
-        "Tormenta eléctrica"
+            "Escudo Mágico",
+            "Lluvia Meteorica",
+            "Tormenta Eléctrica",
+            "Presencia Pestilente",
+            "Modo Dios"
         ];
     }
   
@@ -37,7 +38,7 @@ export class Mago extends Personaje {
     }
   
     evolucionar(): void {
-        console.log(`${this.nombre} ha evolucionado y mejorado su poder mágico.`);
+        console.log(`${this.nombre} ha evolucionado y mejorado su poder mágico. Nivel Actual: ${this.nivel}/${this.nivelMaximo}`);
         this.fuerza += 15;
         this.puntosVida += 10;
         this.fuerzaOriginal = this.fuerza;
@@ -46,7 +47,7 @@ export class Mago extends Personaje {
     }
   
     revertirFuerza(): void {
-        this.fuerza = this.fuerzaOriginal;
+        this.fuerza = this.getFuerzaOriginal();
         console.log(`${this.nombre} ha vuelto a su fuerza mágica normal de ${this.fuerza}.`);
     }
 
