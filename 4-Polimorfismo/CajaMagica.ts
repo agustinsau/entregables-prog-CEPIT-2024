@@ -18,6 +18,6 @@ export class CajaMagica {
 
         console.log(`${personaje.getNombre()} ha encontrado una caja mágica y ha obtenido daño elemental de ${elemento} con un bonus de fuerza de ${bonusFuerza}.`);
         
-        personaje.aplicarDañoElemental(elemento, bonusFuerza);
+        personaje.aplicarDañoElemental(elemento, bonusFuerza, (randomNumber + 1)); // +1 para que nunca toque 0 turnos
     }
 }

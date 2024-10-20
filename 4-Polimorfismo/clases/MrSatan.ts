@@ -34,7 +34,6 @@ export class MrSatan extends Personaje {
   
     evolucionar(): void {
         console.log(`${this.nombre} no ha podido evolucionar...`);
-        this.aprenderHabilidad(); // Desbloquear nueva habilidad
         console.log(`${this.nombre} tiene la misma fuerza, ${this.fuerza} y los mismos puntos de vida: ${this.puntosVida}.`);
     }
   
@@ -43,14 +42,4 @@ export class MrSatan extends Personaje {
         console.log(`${this.nombre} ha vuelto a su fuerza de ${this.fuerza}.`);
     }
 
-
-    //GETERS AND SETTERS
-
-    public getFuerzaOriginal(): number {
-        return this.fuerzaOriginal;
-    }
-
-    public setFuerzaOriginal(fuerzaOriginal: number): void {
-        this.fuerzaOriginal = fuerzaOriginal;
-    }
 }

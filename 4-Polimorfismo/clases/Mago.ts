@@ -40,7 +40,7 @@ export class Mago extends Personaje {
         this.fuerza += 15;
         this.puntosVida += 10;
         this.fuerzaOriginal = this.fuerza;
-        this.aprenderHabilidad(); // Desbloquear nueva habilidad
+        
         console.log(`${this.nombre} ahora tiene ${this.fuerza} de fuerza mágica y ${this.puntosVida} puntos de vida.`);
     }
   
@@ -49,14 +49,4 @@ export class Mago extends Personaje {
         console.log(`${this.nombre} ha vuelto a su fuerza mágica normal de ${this.fuerza}.`);
     }
 
-
-    //GETERS AND SETTERS
-
-    public getFuerzaOriginal(): number {
-        return this.fuerzaOriginal;
-    }
-
-    public setFuerzaOriginal(fuerzaOriginal: number): void {
-        this.fuerzaOriginal = fuerzaOriginal;
-    }
 }

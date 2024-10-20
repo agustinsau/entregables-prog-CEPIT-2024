@@ -2,7 +2,7 @@ export abstract class Personaje {
     //Constantes
     private readonly EVOLUCION_NIVEL: number = 3; //El personaje evolucionara tras esta cantidad de niveles obtenidos
     //private readonly XP_NECESARIA: number = 50 //XP base necesaria para subir de nivel
-    private readonly FACTOR_XP: number = 10; //Factor experiencia adicional cada vez que se pasa un nivel
+    private readonly FACTOR_XP: number = 12; //Factor experiencia adicional cada vez que se pasa un nivel
 
     //PJ Stats
     protected nombre: String;
@@ -57,10 +57,13 @@ export abstract class Personaje {
         this.nivel++;
         this.xpActual -= this.xpSigNivel;
         this.xpSigNivel += this.FACTOR_XP;
+
         console.log(`${this.nombre} ha subido al nivel ${this.nivel}. XP para el proximo nivel: ${this.xpActual}/${this.xpSigNivel}`);
 
+        this.evolucionar();
+
         if (this.nivel % this.EVOLUCION_NIVEL === 0) { //Si subio la cantidad necesaria de niveles, el personaje evoluciona
-            this.evolucionar();
+            this.aprenderHabilidad(); // Desbloquea nueva habilidad 
         }
     }
 
@@ -74,18 +77,18 @@ export abstract class Personaje {
             let nuevaHabilidad = this.habilidades[this.habilidadesDesbloqueadas.length];
             
             this.habilidadesDesbloqueadas.push(nuevaHabilidad);
-            console.log(`${this.nombre} ha aprendido una nueva habilidad: ${nuevaHabilidad}`);
+            console.log(`${this.nombre} ha evolucionado lo suficiente como para aprender una nueva habilidad: ${nuevaHabilidad}`);
 
         } else {
             console.log(`${this.nombre} ya ha desbloqueado todas sus habilidades.`);
         }
     }
 
-    public aplicarDañoElemental(daño: string, bonusFuerza: number): void {
+    public aplicarDañoElemental(daño: string, bonusFuerza: number, turnos: number): void {
         this.dañoElemental = daño;
-        this.ataquesElementalesRestantes = 4;
+        this.ataquesElementalesRestantes = turnos;
         this.fuerza += bonusFuerza;
-        console.log(`${this.nombre} ha activado el daño elemental de ${daño} con un bonus de fuerza de ${bonusFuerza}. Fuerza total: ${this.fuerza}.`);
+        console.log(`${this.nombre} ha activado el daño elemental de ${daño} con un bonus de fuerza de ${bonusFuerza} durante ${turnos} turnos. Fuerza total: ${this.fuerza}.`);
     }
 
     protected realizarAtaqueElemental(): void {
@@ -99,7 +102,7 @@ export abstract class Personaje {
             this.revertirFuerza();
           }
         } else {
-          console.log(`${this.nombre} realiza un ataque normal con fuerza ${this.fuerza}.`);
+            console.log(`${this.nombre} realiza un ataque normal con fuerza ${this.fuerza}.`);
         }   
     }
 

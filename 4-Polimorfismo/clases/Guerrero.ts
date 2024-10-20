@@ -36,11 +36,10 @@ export class Guerrero extends Personaje {
 
     evolucionar(): void {
         console.log(`${this.nombre} ha evolucionado a una versión más fuerte. Nivel Actual: ${this.nivel}/${this.nivelMaximo}`);
-        this.fuerza += 20;
-        this.puntosVida += 30;
+        this.fuerza += 3;
+        this.puntosVida += 10;
         this.fuerzaOriginal = this.fuerza;
-        this.aprenderHabilidad(); // Desbloquea nueva habilidad 
-
+        
         console.log(`${this.nombre} ahora tiene ${this.fuerza} de fuerza y ${this.puntosVida} puntos de vida.`);
     }
     
