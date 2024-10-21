@@ -62,7 +62,7 @@ export abstract class Personaje {
 
         this.evolucionar();
 
-        if (this.nivel % this.EVOLUCION_NIVEL === 0) { //Si subio la cantidad necesaria de niveles, el personaje evoluciona
+        if (this.nivel % this.EVOLUCION_NIVEL === 0) { //Si subio la cantidad necesaria de niveles, el personaje aprende una nueva habilidad
             this.aprenderHabilidad(); // Desbloquea nueva habilidad 
         }
     }

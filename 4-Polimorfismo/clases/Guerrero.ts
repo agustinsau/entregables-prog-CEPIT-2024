@@ -48,7 +48,4 @@ export class Guerrero extends Personaje {
         console.log(`${this.nombre} ha vuelto a su fuerza normal de ${this.fuerza}.`);
     }
 
-    
-
-
 }
