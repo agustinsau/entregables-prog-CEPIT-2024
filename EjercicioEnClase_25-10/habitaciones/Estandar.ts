@@ -18,7 +18,7 @@ export class Estandar extends Habitacion {
         this.setPrecioBase(costoTotal);
     }
 
-    private calcularCostoServicios(): void{
+    public calcularCostoServicios(): void{
         if(this.getCantServicios() > 0){
             let costo: number = 0;
     

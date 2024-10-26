@@ -28,6 +28,7 @@ habiEstandar.agregarServicio(servicio1);
 habiEstandar.agregarServicio(servicio2);
 
 //Calculo Costos
+habiEstandar.calcularCostoServicios()
 console.log('Costo total solo de los servicios: ' + habiEstandar.getPrecioAdicional());
 console.log('Costo total de la estadia: ' + habiEstandar.getPrecioBase());
 
