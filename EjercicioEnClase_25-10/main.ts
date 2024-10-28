@@ -1,6 +1,6 @@
 import { Servicio } from "./clases/Servicio";
 import { Estandar } from "./habitaciones/Estandar";
-import { Suite } from "./Suite";
+import { Suite } from "./habitaciones/Suite";
 
 //Servicios
 

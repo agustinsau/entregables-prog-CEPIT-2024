@@ -22,9 +22,10 @@ export abstract class Habitacion {
     abstract calcularCosto(): void;
 
     public reservarHabitacion(): void{
-        if (this.isDisponible()) {console.log("Se ha agregado un servicio a la habitacion"); 
-console.log("Se ha reservado la habitacion con exito"); 
-console.log("Se ha calculado el costo de la habitacion");
+        if (this.isDisponible()) {
+            //console.log("Se ha agregado un servicio a la habitacion"); 
+            //console.log("Se ha reservado la habitacion con exito"); 
+            //console.log("Se ha calculado el costo de la habitacion");
             this.disponible = false;
             console.log("La habitacion esta disponible y ha sido reservada.");
 
