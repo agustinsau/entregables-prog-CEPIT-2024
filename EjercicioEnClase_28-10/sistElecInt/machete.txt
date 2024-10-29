@@ -1,0 +1,17 @@
+electrodomestico(padre)=abst 
+    (metodos encender, apagar y eso son comunes.
+    funcionalidad especal es abst que usa distinto cada aparato)
+
+
+conectable= boolean
+    (define metodo de actualizacion)
+
+
+clases para lavarropas, heladera, microondas y coso
+    (extend electrodomestico y define func esp)
+    y, por ej, heladera conectable=true ergo:actualizable
+
+
+metodo para actualizacion (if conectable=true => actualizarSoftware()) 
+
+renzo explique el machete ah aaaaaa el proximo ejercicio
